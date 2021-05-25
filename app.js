@@ -7,6 +7,8 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const { sequelize } = require("./models");
+const { loginSession } = require('./middlewares/login_session');
+
 
 /** 라우터 */
 const memberRouter = require('./routes/member');
@@ -47,6 +49,7 @@ app.use(session({
 	name : 'yhsession',
 }));
 
+app.use(loginSession);
 
 /** 라우터 등록 */
 app.use("/member", memberRouter);
