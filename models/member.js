@@ -15,6 +15,8 @@ const member = {
 	* @return Boolean
 	*/
 	join : async function (memId, memPw) {
+		console.log(memId, memPw);
+		return;
 		const hash = await bcrypt.hash(memPw, 10);
 		
 		const sql = "INSERT INTO member (memId, memPw) VALUES (:memId, :memPw)";
