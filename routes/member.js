@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
+const member = require("../models/member"); // member Model 
+
 router.route("/join")
 		/** 회원 가입 양식 */
 		.get((req, res, next) => {
