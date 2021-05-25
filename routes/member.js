@@ -1,5 +1,4 @@
 const express = require('express');
-
 const router = express.Router();
 
 router.route("/join")
@@ -9,7 +8,8 @@ router.route("/join")
 		})
 		/** 회원 가입 처리 */
 		.post((req, res, next) => {
-			
+			console.log(req.body);
+			res.send("");
 		});
 
 module.exports = router;
