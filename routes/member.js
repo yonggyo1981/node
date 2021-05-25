@@ -9,9 +9,13 @@ router.route("/join")
 			res.render("member/form");
 		})
 		/** 회원 가입 처리 */
-		.post(joinValidator, (req, res, next) => {
-			console.log(req.body);
-			res.send("");
+		.post(joinValidator, async (req, res, next) => {
+			try {
+				const result = await member.join(req.memId, req.memPw);
+			} catch (err) {
+				console.error(err);
+				next(err);
+			}
 		});
 
 module.exports = router;
