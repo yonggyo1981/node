@@ -35,6 +35,6 @@ input[type='number'] { border: 1px solid #d5d5d5; padding: 0 10px; height: 40px;
 .admin_page .top_nav a { color: #666666; font-size: 12px; margin-left: 11px; position: relative; }
 .admin_page .top_nav .last:before { content: ''; display: block; position: absolute; left: -7px; top: 4px; width: 1px; height: 11px; background-color: #dddddd; }
 
-.admin_page .container { display: table; }
+.admin_page .container { display: table; padding: 50px 0; }
 .admin_page .container .nav { display: table-cell; vertical-align: top; width: 260px; }
 .admin_page .container .profile { display: table-cell; vertical-align: top; }
