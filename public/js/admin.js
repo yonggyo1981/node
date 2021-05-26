@@ -59,4 +59,14 @@ $(function() {
 	$("body").on("click", ".form_html .remove", function() {
 		$(this).closest(".rows").remove();
 	});
+	
+	
+	/** textarea 확대 축소 처리 */
+	$("body").on("click", ".form_html textarea", function() {
+		$(this).removeClass("h200").addClass("h200");
+	});
+	
+	$("body").on("blur", ".form_html textarea", function() {
+		$(this).removeClass("h200");
+	});
 });
