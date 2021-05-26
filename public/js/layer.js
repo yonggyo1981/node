@@ -13,6 +13,11 @@ const layer = {
 	*  #layer_dim -> 레이어 배경
 	*/
 	popup : function(url, width, height) {
+		if (!url) return;
+		
+		width = width || 300;
+		height = height || 300;
+		
 		/** 없는 경우 추가 */
 		if ($("#layer_dim").length == 0) {
 			$("body").append("<div id='layer_dim'></div>");
@@ -33,6 +38,7 @@ const layer = {
 			left: 0,
 			background : "rgba(0,0,0,0.7)",
 			zIndex : 100,
+			cursor : "pointer",
 		});
 		
 		const xpos = parseInt(($(window).width() - width) / 2);
@@ -48,12 +54,31 @@ const layer = {
 			border : "1px solid #dddddd",
 			borderRadius : "20px",
 		});
+		
+		$.ajax({
+			url : url,
+			type : "get",
+			dataType : "html",
+			success : function(res) {
+				$layerPopup.html(res);
+			},
+			error : function(err) {
+				console.error(err);
+			}
+		});
+		
 	},
 	/**
 	* 팝업 닫기 
 	*
 	*/
 	close : function() {
-		
+		$("#layer_dim, #layer_popup").remove();
 	}
 };
+
+$(function() {
+	$("body").on("click", "#layer_dim", function() {
+		layer.close();
+	});
+});
