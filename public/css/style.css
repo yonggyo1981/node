@@ -74,7 +74,7 @@ input[type='email'] { border: 1px solid #d5d5d5; padding: 0 10px; height: 40px; 
 
 .admin_page .input_box .guide_tit { font-size: 11px; color: #a8a8a8; }
 .admin_page .input_box input { height: 40px; font-size: 16px; color: #333333; border: 0; padding: 0; } 
-.admin_page .input_box textarea { height: 80px; border: 0; width: 100%; resize: none; outline: 0;  }
+.admin_page .input_box textarea { height: 80px; border: 0; width: 100%; resize: none; outline: 0;  color: #333333; font-size: 16px; }
 
 .admin_page .input_box.address { width: 100%; position: relative; }
 .admin_page .input_box.gender { width: 115px; }
@@ -110,3 +110,6 @@ input[type='email'] { border: 1px solid #d5d5d5; padding: 0 10px; height: 40px; 
 .admin_page .form_inner .rows:after { clear: left; content: ''; display: block; }
 .admin_page .form_inner .remove { position: absolute; right: 0; top: 0; width: 35px; height: 35px; background-color: #d5d5d5; text-align: center; cursor: pointer; }
 .admin_page .form_inner .remove i { font-size: 25px; color: #ffffff; margin-top: 4px; }
+
+
+.admin_page .input_box2 { margin-left: 0 !important; border-left: 0 !important; }

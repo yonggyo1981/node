@@ -62,7 +62,7 @@ $(function() {
 	
 	
 	/** textarea 확대 축소 처리 */
-	$("body").on("click", ".form_html textarea", function() {
+	$("body").on("focus", ".form_html textarea", function() {
 		$(this).removeClass("h200").addClass("h200");
 	});
 	
