@@ -45,6 +45,8 @@ const layer = {
 			top : ypos + "px",
 			background : "#ffffff",
 			zIndex: 101,
+			border : "1px solid #dddddd",
+			borderRadius : "20px",
 		});
 	},
 	/**
