@@ -61,6 +61,9 @@ $(function() {
 			case "수상" : 
 				template = "award";
 				break;
+			case "해외경험" : 
+				template = "overseas"; 
+				break;
 		}
 		
 		if (template) {
