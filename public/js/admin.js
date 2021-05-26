@@ -1,4 +1,3 @@
-
 /**
 * 프로필 사진 업로드 처리
 *
@@ -37,5 +36,27 @@ $(function() {
 				$("input[name='address']").val(data.address);
 			}
 		}).open();
+	});
+	
+	/** 양식 추가 처리 */
+	$(".add_form").click(function() {
+		const type = $(this).data("type");
+		let template = "";
+		switch (type) {
+			case "학력" : 
+				template = "school";
+				break;
+		}
+		
+		if (template) {
+			$html = $("#template_" + template).html();
+			$target = $(this).closest(".form_inner").find(".form_html");
+			$target.append($html);
+		} 
+	});
+	
+	/** 양식 제거 처리 */
+	$("body").on("click", ".form_html .remove", function() {
+		$(this).closest(".rows").remove();
 	});
 });
