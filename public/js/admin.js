@@ -64,6 +64,9 @@ $(function() {
 			case "해외경험" : 
 				template = "overseas"; 
 				break;
+			case "어학" : 
+				template = "language";
+				break;
 		}
 		
 		if (template) {
