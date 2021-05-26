@@ -52,6 +52,9 @@ $(function() {
 			case "인턴" : 
 				template = "intern";
 				break;
+			case "교육" : 
+				template = "education";
+				break;
 		}
 		
 		if (template) {
