@@ -49,6 +49,9 @@ $(function() {
 			case "경력" : 
 				template = "job_history";
 				break;
+			case "인턴" : 
+				template = "intern";
+				break;
 		}
 		
 		if (template) {
