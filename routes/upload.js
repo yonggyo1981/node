@@ -28,8 +28,15 @@ router.route("/")
 			
 			res.render("upload");
 		})
-		.post(upload.single("file"), (req, res, next) => {
+		.post(upload.single("file"), async (req, res, next) => {
+			// 이미지가 아닌 파일이 업로드 된 경우 -> 삭제
+			let isSuccess = true;
+			if (req.file && req.file.mimetype.indexOf("image") == -1) {
+				await fs.unlink(req.file.path);
+				isSuccess = false;
+			}
 			
+			return res.send(`<script>parent.uploadCallback(${isSuccess});</script>`);
 		});
 
 module.exports = router;
