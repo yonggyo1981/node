@@ -55,6 +55,9 @@ $(function() {
 			case "교육" : 
 				template = "education";
 				break;
+			case "자격증" : 
+				template = "license"; 
+				break;
 		}
 		
 		if (template) {
