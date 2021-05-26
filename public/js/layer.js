@@ -34,6 +34,18 @@ const layer = {
 			background : "rgba(0,0,0,0.7)",
 			zIndex : 100,
 		});
+		
+		const xpos = parseInt(($(window).width() - width) / 2);
+		const ypos = parseInt(($(window).height() - height) / 2);
+		$layerPopup.css({
+			position: "fixed",
+			width : width + "px",
+			height : height + "px",
+			left : xpos + "px",
+			top : ypos + "px",
+			background : "#ffffff",
+			zIndex: 101,
+		});
 	},
 	/**
 	* 팝업 닫기 
