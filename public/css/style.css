@@ -113,3 +113,4 @@ input[type='email'] { border: 1px solid #d5d5d5; padding: 0 10px; height: 40px; 
 
 
 .admin_page .input_box2 { margin-left: 0 !important; border-left: 0 !important; }
+.admin_page .input_box2.first { border-left: 1px solid #dddddd !important; }
