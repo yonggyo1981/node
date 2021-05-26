@@ -26,6 +26,7 @@ const upload = multer({
 router.route("/")
 		.get((req, res, next) => {
 			
+			res.render("upload");
 		})
 		.post(upload.single("file"), (req, res, next) => {
 			
