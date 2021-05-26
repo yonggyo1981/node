@@ -58,6 +58,9 @@ $(function() {
 			case "자격증" : 
 				template = "license"; 
 				break;
+			case "수상" : 
+				template = "award";
+				break;
 		}
 		
 		if (template) {
