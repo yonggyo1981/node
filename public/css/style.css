@@ -16,7 +16,9 @@ input[type='email'] { border: 1px solid #d5d5d5; padding: 0 10px; height: 40px; 
 /** 너비 */
 .wp100 { width: 100% !important; }
 .w386 { width: 386px !important; }
+.w278 { width: 278px !important; }
 .w188 { width: 188px !important; }
+.w115 { width: 115px !important; }
 
 /** 높이 */
 .h200 { height: 200px !important; }
@@ -111,6 +113,10 @@ input[type='email'] { border: 1px solid #d5d5d5; padding: 0 10px; height: 40px; 
 .admin_page .form_inner .remove { position: absolute; right: 0; top: 0; width: 35px; height: 35px; background-color: #d5d5d5; text-align: center; cursor: pointer; }
 .admin_page .form_inner .remove i { font-size: 25px; color: #ffffff; margin-top: 4px; }
 
-
 .admin_page .input_box2 { margin-left: 0 !important; border-left: 0 !important; }
 .admin_page .input_box2.first { border-left: 1px solid #dddddd !important; }
+.admin_page .input_box2.last { margin-right: 10px; }
+
+
+.admin_page .intern .select_box { width: 125px; margin-right: 0; }
+.admin_page .intern .internCompany { width: 514px; margin-right: 10px;  margin-left: 0; border-left: 0; }

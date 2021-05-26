@@ -66,60 +66,66 @@
 		</div>
 	</section>
 	<!-- 학력 E -->
+	
+	<!-- 경력 S -->
 	<section class='section job_history'>
 		<div class='tit'>경력</div>
 		<div class='form_inner'>
-			<div class='form_html'>
-				<div class='rows'>
-					<div class='input_box input_box2 first'>
-						<div class='guide_tit'>회사명</div>
-						<input type='text' name='jhCompany'>
-					</div>
-					<div class='input_box input_box2'>
-						<div class='guide_tit'>부서명</div>
-						<input type='text' name='jhDept'>
-					</div>
-					<div class='input_box input_box2 first'>
-						<div class='guide_tit'>입사년월</div>
-						<input type='text' name='jhStartDate'>
-					</div>
-					<div class='input_box input_box2'>
-						<div class='guide_tit'>퇴사년월</div>
-						<input type='text' name='jhEndDate'>
-					</div>
-					<div class='choice_box'>
-						<input type='checkbox' name='jhInOffice' id='jhInOffice<%=no%>'>
-						<label for='jhInOffice<%=no%>'>재직중</label>
-					</div>
-					
-					<div class='input_box input_box2 first'>
-						<div class='guide_tit'>직급/직책</div>
-						<input type='text' name='jhPosition'>
-					</div>
-					<div class='input_box input_box2'>
-						<div class='guide_tit'>직무</div>
-						<input type='text' name='jhTask'>
-					</div>
-					<div class='input_box input_box2 first'>
-						<div class='guide_tit'>연봉</div>
-						<input type='text' name='jhSalary'>
-					</div>
-					<div class='input_box jhWork wp100'>
-						<div class='guide_tit'>담당업무</div>
-						<textarea name='jhWork' placeholder='담당하신 업무와 성과에 대해 간단명료하게 적어주세요.'></textarea>
-					</div>
-				</div>
-				<!--// rows -->
-			</div>
+			<div class='form_html'></div>
 			<div class='add_form' data-type='경력'>
 				<i class='xi-plus-circle-o'></i>
 				추가
 			</div>
 		</div>
 	</section>
-	<!-- 경력 S -->
-	
 	<!-- 경력 E -->
+	
+	<!-- 인턴·대외활동 S -->
+	<section class='section intern'>
+		<div class='tit'>인턴·대외활동</div>
+		<div class='form_inner'>
+			<div class='form_html'>
+				<div class='rows'>
+					<div class='select_box'>
+						<select name='internType'>
+							<option value=''>활동구분</option>
+							<option value='인턴'>인턴</option>
+							<option value='아르바이트'>아르바이트</option>
+							<option value='동아리'>동아리</option>
+							<option value='자원봉사'>자원봉사</option>
+							<option value='사회활동'>사회활동</option>
+							<option value='교내활동'>교내활동</option>
+						</select>
+					</div>
+					<div class='input_box internCompany'>
+						<div class='guide_tit'>회사/기관/단체명</div>
+						<input type='text' name='internCompany'>
+					</div>
+					
+					<div class='input_box input_box2 w115 first'>
+						<div class='guide_tit'>시작년월</div>
+						<input type='text' name='internStartDate'>
+					</div>
+					
+					<div class='input_box input_box2 w115'>
+						<div class='guide_tit'>종료년월</div>
+						<input type='text' name='internEndDate'>
+					</div>
+					
+					<div class='input_box wp100'>
+						<div class='guide_tit'>활동내용</div>
+						<textarea name='internDesc' placeholder='직무와 관련된 경험에 대해(상황 - 노력 - 결과)순으로 작성하는 것이 좋습니다.'></textarea>
+					</div>
+				</div>
+			</div>
+			<div class='add_form' data-type='인턴'>
+				<i class='xi-plus-circle-o'></i>
+				인턴·대외활동 추가
+			</div>
+		</div>
+		<!--// form_inner -->
+	</section>
+	<!-- 인턴·대외활동 E -->
 	
 	<!-- 희망 근무조건 S -->
 	<section class='section work_condition'>
