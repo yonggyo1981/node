@@ -143,26 +143,58 @@ const resume = {
 					params.internEndDate = [params.internEndDate];
 					params.internDesc = [params.internDesc];
 				}
-			}
-			
-			params.internType.forEach(async (type, index) => {
-				const sql = `INSERT INTO intern (type, company, startDate, endDate, description)
-									VALUES (:type, :company, :startDate, :endDate, :description)`;
-				
-				const replacements = {
-						type : type,
-						company : params.internCompany[index],
-						startDate : params.internStartDate[index],
-						endDate : params.internEndDate[index],
-						description : params.internDesc[index],
-				};
-				
-				await sequelize.query(sql, {
-					replacements, 
-					type : QueryTypes.INSERT,
+		
+				params.internType.forEach(async (type, index) => {
+					const sql = `INSERT INTO intern (type, company, startDate, endDate, description)
+										VALUES (:type, :company, :startDate, :endDate, :description)`;
+					
+					const replacements = {
+							type : type,
+							company : params.internCompany[index],
+							startDate : params.internStartDate[index],
+							endDate : params.internEndDate[index],
+							description : params.internDesc[index],
+					};
+					
+					await sequelize.query(sql, {
+						replacements, 
+						type : QueryTypes.INSERT,
+					});
 				});
-			});
+			}
 			// intern 인턴 및 대외활동 처리 E
+			
+			// education 교육이수 처리 S 
+			sql = 'TRUNCATE education';
+			await sequelize.query(sql, { type : QueryTypes.DELETE });
+			if (params.items && params.items.indexOf('교육이수') != -1) {
+				if (!(params.eduName instanceof Array)) {
+					params.eduName = [params.eduName];
+					params.eduCompany = [params.eduCompany];
+					params.eduStartDate = [params.eduStartDate];
+					params.eduEndDate = [params.eduEndDate];
+					params.eduDesc = [params.eduDesc];
+				}
+				
+				params.eduName.forEach((name, index) => {
+					const sql = `INSERT INTO education (name, company, startDate, endDate, description)
+											VALUES (:name, :company, :startDate, :endDate, :description)`;
+					
+					const replacements = {
+						name : name,
+						company : params.eduCompany[index],
+						startDate : params.eduStartDate[index],
+						endDate : params.eduEndDate[index],
+						description : params.eduDesc[index],
+					};
+					
+					await sequelize.query(sql, {
+						replacements,
+						type : QueryTypes.INSERT,
+					});
+				});
+			}
+			// education 교육이수 처리 E 
 			
 			return true;
 		} catch (err) {
