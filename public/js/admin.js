@@ -96,6 +96,9 @@ $(function() {
 			case "자기소개" : 
 				template = "introduction";
 				break;
+			case "포트폴리오" :
+				template = "portfolio";
+				break;
 		}
 		
 		if (template) {
