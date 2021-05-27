@@ -29,7 +29,8 @@ CREATE TABLE `basicinfo` (
 	`workKeyword` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`benefit` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`handicapLevel` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
-	`military` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci'
+	`military` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`negotiableSalary` TINYINT(1) NULL DEFAULT '0'
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
