@@ -1,4 +1,56 @@
 /**
+* 템플릿 양식 추가 처리 
+*
+*/
+function addForm(type, target)
+{
+	let template = "";
+	switch (type) {
+		case "학력" : 
+			template = "school";
+			break;
+		case "경력" : 
+			template = "job_history";
+			break;
+		case "인턴" : 
+			template = "intern";
+			break;
+		case "교육" : 
+			template = "education";
+			break;
+		case "자격증" : 
+			template = "license"; 
+			break;
+		case "수상" : 
+			template = "award";
+			break;
+		case "해외경험" : 
+			template = "overseas"; 
+			break;
+		case "어학" : 
+			template = "language";
+			break;
+		case "자기소개" : 
+			template = "introduction";
+			break;
+		case "포트폴리오" :
+			template = "portfolio";
+			break;
+	}
+		
+	if (template) {
+		let html = $("#template_" + template).html();
+					
+		if (target.length > 0) {
+			const no = new Date().getTime();
+			html = html.replace(/<%=no%>/g, no);
+		}
+			
+		target.append(html);
+	} 
+}
+
+/**
 * 선택한 메뉴에 따라 이력서 양식 항목 노출,미노출 처리
 *
 */
