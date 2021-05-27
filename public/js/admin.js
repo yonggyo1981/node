@@ -68,8 +68,8 @@ function updateSelectedMenu()
 			$form = $target.find(".add_form"); 
 			if (cnt == 0 && $form.length > 0) { // 양식 추가 항목 중에서 추가된 양식이 없는 경우 자동 추가 
 				const type = $form.data("type");
-				$formInner = $target.find(".form_inner");
-				addForm(type, $formInner);
+				$formHtml = $target.find(".form_html");
+				addForm(type, $formHtml);
 			}
 		} else {
 			$target.removeClass("dn").addClass("dn");
