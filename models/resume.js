@@ -35,7 +35,7 @@ const resume = {
 										  salary = :salary,
 										  workLocation = :workLocation,
 										  workKeyword = :workKeyword,
-										  beneift = :beneift,
+										  benefit = :benefit,
 										  handicapLevel = :handicapLevel,
 										  military = :military`;
 				let replacements = {
@@ -51,10 +51,16 @@ const resume = {
 					salary : params.salary,
 					workLocation : params.workLocation,
 					workKeyword : params.workKeyword,
-					beneift : params.beneift,
+					benefit : params.benefit || "",
 					handicapLevel : params.handicapLevel,
 					military : params.military,
 				};
+				
+				let result = await sequelize.query(sql, {
+					replacements, 
+					type : QueryTypes.INSERT,
+				});
+				console.log(result);
 			// basicinfo 처리 E 
 			
 			return true;
