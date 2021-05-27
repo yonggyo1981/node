@@ -140,3 +140,9 @@ input[type='email'] { border: 1px solid #d5d5d5; padding: 0 10px; height: 40px; 
 .admin_page .benefit .inner2 { background-color: #ffffff; padding: 20px; border: 1px solid #dbe0e9; }
 .admin_page .benefit .sel { float: left; margin-right: 10px; width: 168px; }
 .admin_page .benefit .inner2:after { clear: left; content: ''; display: block; }
+
+.admin_page .benefit .additional_select { background-color: #f5f7fa; padding: 20px; border: 1px solid #dbe0e9; border-top: 0; }
+.admin_page .benefit dt { width: 71px; color: #666666; font-size: 14px; padding: 0; }
+.admin_page .benefit dd { padding: 0; }
+.admin_page .benefit dl.handicap { margin-bottom: 10px; }
+.admin_page .benefit .additional_select select { border: 1px solid #dddddd; width: 180px; height: 62px; background-color: #ffffff; }
