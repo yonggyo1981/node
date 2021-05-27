@@ -69,12 +69,25 @@ const resume = {
 			// basicinfo 처리 E 
 			// school 학력 처리 S 
 			sql = 'TRUNCATE school';
-			result = await sequelize.query(sql, {
+			await sequelize.query(sql, {
 				type : QueryTypes.DELETE,
 			});
-			console.log(result);
-			if (params.items && params.items.indexOf('학력') != -1) {
+			
+			if (params.items && params.items.indexOf('학력') != -1 && params.schoolType) {
+				if (!(params.schoolType instanceof Array)) {
+					params.schoolType = [params.schoolType];
+					params.schoolName = [params.schoolName];
+				}
 				
+				params.schoolType.forEach(async (type, index) => {
+						name = params.schoolName[index];
+						
+						const sql = "INSERT INTO school (type, name) VALUES (?, ?)";
+						await sequelize.query(sql, {
+							replacements : [type, name],
+							type : QueryTypes.INSERT,
+						});
+				});
 			}
 			// school 학력 처리 E 
 			
