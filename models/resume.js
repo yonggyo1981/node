@@ -136,9 +136,32 @@ const resume = {
 			sql = 'TRUNCATE intern';
 			await sequelize.query(sql, { type : QueryTypes.DELETE });
 			if (params.items && params.items.indexOf('인턴') != -1) {
-				
+				if (!(params.internType instanceof Array)) {
+					params.internType = [params.internType];
+					params.internCompany = [params.internCompany];
+					params.internStartDate = [params.internStartDate];
+					params.internEndDate = [params.internEndDate];
+					params.internDesc = [params.internDesc];
+				}
 			}
 			
+			params.internType.forEach(async (type, index) => {
+				const sql = `INSERT INTO intern (type, company, startDate, endDate, description)
+									VALUES (:type, :company, :startDate, :endDate, :description)`;
+				
+				const replacements = {
+						type : type,
+						company : params.internCompany[index],
+						startDate : params.internStartDate[index],
+						endDate : params.internEndDate[index],
+						description : params.internDesc[index],
+				};
+				
+				await sequelize.query(sql, {
+					replacements, 
+					type : QueryTypes.INSERT,
+				});
+			});
 			// intern 인턴 및 대외활동 처리 E
 			
 			return true;
