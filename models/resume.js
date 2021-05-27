@@ -283,6 +283,33 @@ const resume = {
 			}
 			// overseas 해외경험 처리 E 
 			
+			// language 어학 처리 S 
+			sql = 'TRUNCATE language';
+			await sequelize.query(sql, { type : QueryTypes.DELETE });
+			if (params.items && params.items.indexOf('어학') != -1) {
+				if (!(params.languageType instanceof Array)) {
+					params.languageType = [params.languageType];
+					params.languageName = [params.languageName];
+					params.languageAbility = [params.languageAbility];
+				}
+				
+				params.languageType.forEach(async (type, index) => {
+					const sql = `INSERT INTO language (type, name, ability) 
+											VALUES (:type, :name, :ability)`;
+					
+					const replacements = {
+							type : type,
+							name : params.languageName[index],
+							ability : params.languageAbility[index],
+					};
+					
+					await sequelize.query(sql, {
+						replacements,
+						type : QueryTypes.INSERT,
+					});
+				});
+			}
+			// language 어학 처리 E 
 			return true;
 		} catch (err) {
 			console.error(err);
