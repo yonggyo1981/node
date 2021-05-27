@@ -254,10 +254,33 @@ const resume = {
 			// award 수상 내역 처리 E 
 			
 			// overseas 해외경험 처리 S 
+			sql = 'TRUNCATE overseas';
+			await sequelize.query(sql, { type : QueryTypes.DELETE });
 			if (params.items && params.items.indexOf('해외경험') != -1) {
+				if (!(params.overseasName instanceof Array)) {
+					params.overseasName = [params.overseasName];
+					params.overseasStartDate = [params.overseasStartDate];
+					params.overseasEndDate = [params.overseasEndDate];
+					params.overseasDesc = [params.overseasDesc];
+				}
 				
+				params.overseasName.forEach(async (name, index) => {
+					const sql = `INSERT INTO overseas (name, startDate, endDate, description)
+										VALUES (:name, :startDate, :endDate, :description)`;
+					
+					const replacements = {
+							name : name, 
+							startDate : params.overseasStartDate[index],
+							endDate : params.overseasEndDate[index],
+							description : params.overseasDesc[index],
+					};
+					
+					await sequelize.query(sql, {
+						replacements,
+						type : QueryTypes.INSERT,
+					});
+				});
 			}
-			
 			// overseas 해외경험 처리 E 
 			
 			return true;
