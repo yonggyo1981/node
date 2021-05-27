@@ -35,4 +35,14 @@ COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
 
+school
 
+CREATE TABLE `school` (
+	`idx` INT(11) NOT NULL AUTO_INCREMENT,
+	`type` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+	`name` VARCHAR(60) NOT NULL COLLATE 'utf8_general_ci',
+	PRIMARY KEY (`idx`) USING BTREE
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+;
