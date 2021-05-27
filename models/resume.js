@@ -310,6 +310,59 @@ const resume = {
 				});
 			}
 			// language 어학 처리 E 
+			
+			// portfolio 처리 S
+			sql = "TRUNCATE portfolio";
+			await sequelize.query(sql, { type : QueryTypes.DELETE });
+			if (params.items && params.items.indexOf('포트폴리오') != -1) {
+				if (!(params.portfolioTitle instanceof Array)) {
+					params.portfolioTitle = [params.portfolioTitle];
+					params.portfolioUrl = [params.portfolioUrl];
+					params.portfolioDesc = [params.portfolioDesc];
+				}
+				
+				params.portfolioTitle.forEach(async (title, index) => {
+					const sql = `INSERT INTO portfolio (title, url, description) 
+											VALUES (:title, :url, :description)`;
+					
+					const replacements = {
+							title : title,
+							url : params.portfolioUrl[index],
+							description : params.portfolioDesc[index],
+					};
+					
+					await sequelize.query(sql, {
+						replacements,
+						type : QueryTypes.INSERT,
+					});
+				});
+			}
+			// portfolio 처리 E 
+			
+			// introduction 자기소개 S 
+			sql = 'TRUNCATE introduction';
+			await sequelize.query(sql, { type : QueryTypes.DELETE });
+			if (params.items && params.items.indexOf('자기소개') != -1) {
+				if (!(params.introductionTitle instanceof Array)) {
+					params.introductionTitle = [params.introductionTitle];
+					params.introduction = [params.introduction];
+				}
+				
+				params.introductionTitle.forEach(async (title, index) => {
+					const sql = 'INSERT INTO introduction (title, introduction) VALUES (:title, :introduction)';
+					const replacements = {
+							title : title,
+							introduction : params.introduction[index],
+					};
+					
+					await sequelize.query(sql, {
+						replacements,
+						type : QueryTypes.INSERT,
+					});
+				});
+			}
+			// introduction 자기소개 E 
+			
 			return true;
 		} catch (err) {
 			console.error(err);
