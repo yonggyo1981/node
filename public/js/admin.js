@@ -1,11 +1,28 @@
 /**
+* 선택한 메뉴에 따라 이력서 양식 항목 노출,미노출 처리
+*
+*/
+function updateSelectedMenu()
+{
+	$list = $(".floating_box input[type='checkbox']");
+	$.each($list, function() {
+		const target = $(this).data("target");
+		if ($(this).prop("checked")) {
+			$("section." + target).removeClass("dn");
+		} else {
+			$("section." + target).removeClass("dn").addClass("dn");
+		}
+	});
+}
+
+/**
 * 스크롤시 오른쪽 floating 메뉴 고정 
 *
 */
 function updateNavFixed()
 {
 	const offset = $(".container .nav").offset();
-	const ypos = offset.top;
+	const ypos = offset.top + 100;
 	const st = $(window).scrollTop();
 	$floatingBox = $(".nav .floating_box");
 	if (ypos >= st) { // fixed 제거 
@@ -157,5 +174,10 @@ $(function() {
 	updateNavFixed();
 	$(window).scroll(function() {
 		updateNavFixed();
+	});
+	
+	/** floating 메뉴 선택 처리 */
+	$(".floating_box input[type='checkbox']").click(function() {
+		updateSelectedMenu();
 	});
 });
