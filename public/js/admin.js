@@ -7,10 +7,20 @@ function updateSelectedMenu()
 	$list = $(".floating_box input[type='checkbox']");
 	$.each($list, function() {
 		const target = $(this).data("target");
+		$target = $("section." + target);
 		if ($(this).prop("checked")) {
-			$("section." + target).removeClass("dn");
+			$target.removeClass("dn");
+			
+			/** 현재 영역에 추가된 입력 양식이 없으면 추가 */
+			const cnt = $target.find(".rows").length;
+			$form = $target.find(".add_form"); 
+			if (cnt == 0 && $form.length > 0) { // 양식 추가 항목 중에서 추가된 양식이 없는 경우 자동 추가 
+				const type = $form.data("type");
+				$formInner = $target.find(".form_inner");
+				addForm(type, $formInner);
+			}
 		} else {
-			$("section." + target).removeClass("dn").addClass("dn");
+			$target.removeClass("dn").addClass("dn");
 		}
 	});
 }
