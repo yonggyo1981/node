@@ -93,6 +93,9 @@ $(function() {
 			case "어학" : 
 				template = "language";
 				break;
+			case "자기소개" : 
+				template = "introduction";
+				break;
 		}
 		
 		if (template) {
