@@ -224,6 +224,42 @@ const resume = {
 			}
 			// license 자격증 처리 E 
 			
+			// award 수상 내역 처리 S 
+			sql = 'TRUNCATE award';
+			await sequelize.query(sql, { type : QueryTypes.DELETE });
+			if (params.items && params.items.indexOf('수상') != -1) {
+				if (!(params.awardName instanceof Array)) {
+					params.awardName = [params.awardName];
+					params.awardCompany = [params.awardCompany];
+					params.awardYear = [params.awardYear];
+					params.awardDesc = [params.awardDesc];
+				}
+				
+				params.awardName.forEach(async (name, index) => {
+					const sql = `INSERT INTO award (name, company, year, description) 
+										VALUES (:name, :company, :year, :description)`;
+					const replacements = {
+							name : name,
+							company : params.awardCompany[index],
+							year : params.awardYear[index],
+							description : params.awardDesc[index],
+					};
+					
+					await sequelize.query(sql, {
+						replacements,
+						type : QueryTypes.INSERT,
+					});
+				});
+			}
+			// award 수상 내역 처리 E 
+			
+			// overseas 해외경험 처리 S 
+			if (params.items && params.items.indexOf('해외경험') != -1) {
+				
+			}
+			
+			// overseas 해외경험 처리 E 
+			
 			return true;
 		} catch (err) {
 			console.error(err);
