@@ -1,3 +1,20 @@
+/**
+* 스크롤시 오른쪽 floating 메뉴 고정 
+*
+*/
+function updateNavFixed()
+{
+	const offset = $(".container .nav").offset();
+	const ypos = offset.top;
+	const st = $(window).scrollTop();
+	$floatingBox = $(".nav .floating_box");
+	if (ypos >= st) { // fixed 제거 
+		$floatingBox.removeClass("fixed");
+	} else { // fixed 추가 
+		$floatingBox.removeClass("fixed").addClass("fixed");
+	}
+}
+
 /** 
 * 취업우대,병역 항목 선택시 
 * 장애, 병역 선택에 따른 항목 노출 
@@ -136,4 +153,9 @@ $(function() {
 		updateBenefit();
 	});
 	
+	/** 스크롤시 오른쪽 floating 메뉴 고정 */
+	updateNavFixed();
+	$(window).scroll(function() {
+		updateNavFixed();
+	});
 });
