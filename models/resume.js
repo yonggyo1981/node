@@ -176,7 +176,7 @@ const resume = {
 					params.eduDesc = [params.eduDesc];
 				}
 				
-				params.eduName.forEach((name, index) => {
+				params.eduName.forEach(async (name, index) => {
 					const sql = `INSERT INTO education (name, company, startDate, endDate, description)
 											VALUES (:name, :company, :startDate, :endDate, :description)`;
 					
@@ -195,6 +195,34 @@ const resume = {
 				});
 			}
 			// education 교육이수 처리 E 
+			
+			// license 자격증 처리 S 
+			sql = 'TRUNCATE license';
+			await sequelize.query(sql, { type : QueryTypes.DELETE });
+			if (params.items && params.items.indexOf('자격증') != -1) {
+				if (!(params.licenseName instanceof Array)) {
+					params.licenseName = [params.licenseName];
+					params.licenseIssue = [params.licenseIssue];
+					params.licenseDate = [params.licenseDate];
+				}
+				
+				params.licenseName.forEach(async (name, index) => {
+					const sql = `INSERT INTO license (name, issue, date) 
+										VALUES (:name, :issue, :date)`;
+					
+					const replacements = {
+						name : name, 
+						issue : params.licenseIssue[index],
+						date : params.licenseDate[index],
+					};
+					
+					await sequelize.query(sql, {
+						replacements, 
+						type : QueryTypes.INSERT,
+					});
+				});
+			}
+			// license 자격증 처리 E 
 			
 			return true;
 		} catch (err) {
