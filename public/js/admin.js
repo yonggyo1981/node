@@ -89,12 +89,11 @@ function getResume()
 						type = "학력";
 						break;
 				}
-			}
-			
-			// $target - form_html
-			$target = $("section." + table + " .form_html");
-			addForm(type, $target, res[table]);
-			
+				
+				// $target - form_html
+				$target = $("section." + table + " .form_html");
+				addForm(type, $target, res[table]);
+			} // endfor
 			/** 나머지 테이블 처리 */
 			
 		},
@@ -152,7 +151,11 @@ function addForm(type, target, list)
 			html = html.replace(/<%=no%>/g, no);
 		}
 		
-		if (list) { // DB에 데이터가 있으면 갯수만큼 추가 
+		if (list) { // 데이터가 있으면 갯수만큼 추가 
+			if (list.length > 0) {
+				$("section." + template).removeClass("dn");
+			}
+			
 			list.forEach((data) => {
 				target.append(html);
 			});
