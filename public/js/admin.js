@@ -89,7 +89,7 @@ function getResume()
 						type = "학력";
 						break;
 				}
-				
+		
 				// $target - form_html
 				$target = $("section." + table + " .form_html");
 				addForm(type, $target, res[table]);
@@ -158,7 +158,6 @@ function addForm(type, target, list)
 				$(".floating_box ." + template).prop("checked", true);
 			}
 			
-			
 			list.forEach((data) => {
 				// 데이터를 완성 처리 
 				let html2 = html;
@@ -192,10 +191,10 @@ function addForm(type, target, list)
 											$school2.text("편입");
 										}
 										break;
-									case "input[type='checkbox']" : 
-									
+									case "input[type='checkbox']" :  // checkbox 
+										$(this).prop("checked", data[key]);
 										break;
-									default :
+									default : 
 										// 일치하는 name이 있는 경우 
 										$(this).val(data[key]);
 								}

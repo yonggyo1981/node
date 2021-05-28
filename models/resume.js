@@ -89,7 +89,7 @@ const resume = {
 					params.schoolScore = [params.schoolScore];
 					params.schoolScoreTotal = [params.schoolScoreTotal];
 				}
-				
+		
 				params.schoolType.forEach(async (type, index) => {				
 						const sql = `INSERT INTO school (type, name, startDate, endDate, status, transfer, major, score, scoreTotal)
 												VALUES (:type, :name, :startDate, :endDate, :status, :transfer, :major, :score, :scoreTotal)`;
@@ -105,7 +105,7 @@ const resume = {
 								score : params.schoolScore[index],
 								scoreTotal : params.schoolScoreTotal[index],
 						};
-						
+
 						await sequelize.query(sql, {
 							replacements,
 							type : QueryTypes.INSERT,
