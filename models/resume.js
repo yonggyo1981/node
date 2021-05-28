@@ -373,7 +373,7 @@ const resume = {
 	* 저장된 이력서 데이터 
 	*
 	*/
-	get : async function() {
+	get : function() {
 		const tables = [
 			'basicinfo',
 			'award', 
@@ -387,12 +387,30 @@ const resume = {
 			'portfolio',
 		];
 		
+		const data = {};
 		try {
-			
+			tables.forEach(async (table) => {
+				let sql = "SELECT * FROM " + table;
+				if (table != 'basicinfo') {
+					sql += " ORDER BY idx";
+				}
+				
+				const rows = await sequelize.query(sql, {
+					type : QueryTypes.SELECT,
+				});
+				
+				if (table == 'basicinfo') { // 기본 인적사항 -> 레코드 1개
+					data[table] = rows[0];
+				} else { // 나머지는 레코드 여러개 
+					data[table] = rows;
+				}
+			});
 			
 		} catch (err) {
 			return {};
 		}
+		
+		return data;
 	},
 };
 
