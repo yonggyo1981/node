@@ -182,6 +182,7 @@ function addForm(type, target, list)
 									$(this).change();
 									$school1 = $(this).closest(".rows").find(".status, .major, .score, .scoreTotal");
 									$school2 = $(this).closest(".rows").find(".schoolTransferTxt");
+									//console.log(data[key].type);
 									if (data[key].type == '고등학교') {
 										$school1.addClass("dn");
 										$school2.text("대입검정고시");
