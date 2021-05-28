@@ -180,9 +180,14 @@ function addForm(type, target, list)
 								
 								if (selector == 'select') {
 									$(this).change();
-									if (data[key].type != '고등학교') {
-										$(this).closest(".rows").find(".status, .major, .score, .scoreTotal").removeClass("dn");
-										$(this).closest(".rows").find(".schoolTransferTxt").text("편입");
+									$school1 = $(this).closest(".rows").find(".status, .major, .score, .scoreTotal");
+									$school2 = $(this).closest(".rows").find(".schoolTransferTxt");
+									if (data[key].type == '고등학교') {
+										$school1.addClass("dn");
+										$school2.text("대입검정고시");
+									} else {
+										$school1.removeClass("dn");
+										$school2.text("편입");
 									}
 								}
 								break;
