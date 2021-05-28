@@ -368,7 +368,32 @@ const resume = {
 			console.error(err);
 			return false;
 		}
-	}
+	},
+	/**
+	* 저장된 이력서 데이터 
+	*
+	*/
+	get : async function() {
+		const tables = [
+			'basicinfo',
+			'award', 
+			'education',
+			'intern',
+			'introduction',
+			'jobhistory',
+			'language',
+			'license',
+			'overseas',
+			'portfolio',
+		];
+		
+		try {
+			
+			
+		} catch (err) {
+			return {};
+		}
+	},
 };
 
 module.exports = resume;

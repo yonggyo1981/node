@@ -14,6 +14,10 @@ router.get("/", (req, res, next) => {
 });
 
 router.route("/profile")
+	/** 저장된 이력서 데이터 */
+	.get(async (req, res, next) => {
+		const data = await resume.get();
+	})
 	/** 이력서 저장 처리 */
 	.post(async (req, res, next) => {
 		const result = await resume.update(req.body);
