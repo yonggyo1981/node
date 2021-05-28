@@ -73,6 +73,18 @@ function getResume()
 					case "jobhistory" : 	
 						type = "경력";
 						break;
+					case "language" :
+						type = "어학";
+						break;
+					case "license" :
+						type = "자격증";
+						break;
+					case "overseas" : 
+						type = "해외경험";
+						break;
+					case "portfolio" : 
+						type = "포트폴리오";
+						break;
 				}
 				
 			}
