@@ -51,6 +51,34 @@ function getResume()
 				}
 			} // endif
 			/* basicinfo */
+			
+			/** 나머지 테이블 처리 */
+			for (table in res) {
+				if (table == 'basicinfo') continue;
+				
+				let type = "";
+				switch (table) {
+					case "award" : 
+						type = "수상";
+						break;
+					case "education" : 
+						type = "교육";
+						break;
+					case "intern" : 
+						type = "인턴";
+						break;
+					case "introduction":
+						type = "자기소개";
+						break;
+					case "jobhistory" : 	
+						type = "경력";
+						break;
+				}
+				
+			}
+			
+			/** 나머지 테이블 처리 */
+			
 		},
 		error : function (err) {
 			console.error(err);
