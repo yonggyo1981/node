@@ -395,4 +395,16 @@ $(function() {
 			$section.find(".schoolTransferTxt").text("편입");
 		}
 	});
+	
+	/** 학력 - 편입, 대입검정고시 클릭시 처리 */
+	$("body").on("click", ".schoolTransfer", function() {
+		const v = $(this).prop("checked")?1:0;
+		$(this).parent().find("input[name='schoolTransfer']").val(v);
+	});
+	
+	/** 경력 - 재직중 클릭시 처리 */
+	$("body").on("click", ".jhInOffice", function() {
+		const v = $(this).prop("checked")?1:0;
+		$(this).parent().find("input[name='jhInOffice']").val(v);
+	});
 });
