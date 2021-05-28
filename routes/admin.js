@@ -32,7 +32,7 @@ router.route("/profile")
 	});
 	
 /** 이력서 이미지 삭제 */
-router.get("/remove_photo", async (req, res, next) {
+router.get("/remove_photo", async (req, res, next) => {
 	try {
 		await fs.unlink(path.join(__dirname, "../public/profile/profile"));
 		return res.send("1");

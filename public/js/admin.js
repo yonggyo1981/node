@@ -285,6 +285,7 @@ function uploadCallback(isSuccess)
 	if (isSuccess) { // 성공 
 		const tag = `<img src='/profile/profile'>`;
 		$(".photo_upload").html(tag);
+		$(".photo_upload").parent().append("<i class='xi-close photo_remove'></i>");
 	} else { // 실패 
 		alert("이미지 업로드 실패");
 	}
@@ -359,12 +360,23 @@ $(function() {
 	
 	/** 이력서 이미지 삭제 */
 	$("body").on("click", ".photo_remove", function() {
+		if (!confirm('정말 삭제하시겠습니까?')) {
+			return;
+		}
+		
 		$.ajax({
 			url : "/admin/remove_photo",
 			type : "get",
-			dataType : "html",
+			dataType : "text",
 			success : function (res) {
-				console.log(res);
+				if (res.trim() == "1") { // 삭제 성공 
+					const tag = `<i class='xi-plus-circle-o icon'></i>
+									<div class='t'>사진추가</div>`;
+					$(".photo_upload").html(tag);
+					$(".photo_remove").remove();
+				} else { // 삭제 실패
+					alert("이미지 삭제 실패");
+				}
 			},
 			error : function (err) {
 				console.error(err);
