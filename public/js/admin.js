@@ -180,7 +180,10 @@ function addForm(type, target, list)
 								
 								if (selector == 'select') {
 									$(this).change();
-									$(this).closest("section").find(".status, .major, .score, .scoreTotal").removeClass("dn");
+									if (data[key].type != '고등학교') {
+										$(this).closest(".rows").find(".status, .major, .score, .scoreTotal").removeClass("dn");
+										$(this).closest(".rows").find(".schoolTransferTxt").text("편입");
+									}
 								}
 								break;
 							}
@@ -386,7 +389,7 @@ $(function() {
 	
 	/** 학력에서 학교 구분 선택 처리 */
 	$("body").on("change", "select[name='schoolType']", function() {
-		$section = $(this).closest("section");
+		$section = $(this).closest(".rows");
 		$target = $section.find(".status, .major, .score, .scoreTotal");
 		if ($(this).val() == '고등학교' || $(this).val() == "") {
 			$target.addClass("dn");

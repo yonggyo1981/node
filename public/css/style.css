@@ -172,8 +172,8 @@ input[type='email'] { border: 1px solid #d5d5d5; padding: 0 10px; height: 40px; 
 
 /** 학력 템플릿 */
 section.school .select_box1 { width: 106px; margin-right: 0; border-right: 0; }
-section.school .name { width: 350px !important;  } 
-section.school .major { width: 455px !important; margin-left: 0 !important; margin-right: 10px; }
+section.school .name { width: 300px !important;  } 
+section.school .major { width: 405px !important; margin-left: 0 !important; margin-right: 10px; }
 section.school .startdate { border-right: 0 !important; }
-section.school .status { border-left: 0; }
+section.school .status { border-left: 0;  width: 115px; }
 section.school .score { border-right: 0 !important; }
