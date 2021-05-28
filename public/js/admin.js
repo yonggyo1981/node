@@ -383,4 +383,14 @@ $(function() {
 			}
 		});
 	});
+	
+	/** 학력에서 학교 구분 선택 처리 */
+	$("body").on("change", "select[name='schoolType']", function() {
+		$target = $(this).closest("section").find(".status, .major, .score, .scoreTotal");
+		if ($(this).val() == '고등학교' || $(this).val() == "") {
+			$target.addClass("dn");
+		} else { // 고등학교 외 
+			$target.removeClass("dn");
+		}
+	});
 });
