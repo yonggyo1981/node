@@ -161,7 +161,7 @@ function addForm(type, target, list)
 			list.forEach((data) => {
 				// 데이터를 완성 처리 
 				$tplHtml = $(html);
-				const selector = ["input[type='text']", "textarea"];
+				const selector = ["input[type='text']", "textarea", "select"];
 				selector.forEach((selector) => {
 					$texts = $tplHtml.find(selector);
 					$.each($texts, function() {
@@ -173,6 +173,10 @@ function addForm(type, target, list)
 							if (name.indexOf(keyName) != -1) {
 								// 일치하는 name이 있는 경우 
 								$(this).val(data[key]);
+								
+								if (selector == 'select') {
+									$(this).change();
+								}
 								break;
 							}
 						}
