@@ -167,7 +167,8 @@ function addForm(type, target, list)
 					for(key in data) {
 						if (name.indexOf(key.toLowerCase()) != -1) {
 							// 일치하는 name이 있는 경우 
-							console.log(name, key);
+							$(this).val(data[key]);
+							break;
 						}
 					}
 				});
