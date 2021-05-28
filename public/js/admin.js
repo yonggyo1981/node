@@ -21,6 +21,12 @@ function getResume()
 								break;
 							case "checkbox" :
 								if (res.basicinfo[key] instanceof Array) { // 복수 checkbox
+									// 취업우대, 병역 노출 
+									if (res.basicinfo[key].length > 0) {
+										$("section.benefit").removeClass("dn");
+										$("#selection_items10").prop("checked", true);
+									}
+								
 									$.each($target, function() {
 										const v = $(this).val();
 										let checked = false;
