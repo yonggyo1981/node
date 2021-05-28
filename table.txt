@@ -30,12 +30,14 @@ CREATE TABLE `basicinfo` (
 	`benefit` VARCHAR(150) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`handicapLevel` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`military` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`militaryStartDate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`militaryEndDate` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
+	`militaryRank` VARCHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci',
 	`negotiableSalary` TINYINT(1) NULL DEFAULT '0'
 )
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB
 ;
-
 
 school
 

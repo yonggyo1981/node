@@ -49,6 +49,23 @@ function getResume()
 						}
 					}
 				}
+				// basicInfo select 부분 처리 
+				if (res.basicinfo.handicapLevel) {
+					$("select[name='handicapLevel']").val(res.basicinfo.handicapLevel).change();
+				}
+				
+				if (res.basicinfo.military) {
+					$("select[name='military']").val(res.basicinfo.military).change();
+					
+					$t = $(".military .add_info");
+					if (res.basicinfo.military == '군필') {
+						$t.removeClass("dn");
+					} else {
+						$t.removeClass("dn").addClass("dn");
+					}
+				}
+				
+				
 			} // endif
 			/* basicinfo */
 			
@@ -424,5 +441,15 @@ $(function() {
 	$("body").on("click", ".jhInOffice", function() {
 		const v = $(this).prop("checked")?1:0;
 		$(this).parent().find("input[name='jhInOffice']").val(v);
+	});
+	
+	/** 병역 - 군필 선택 추가 정보 처리 */
+	$("body").on("click", ".benefit select[name='military']", function() {
+		$target = $(this).siblings(".add_info");
+		if ($(this).val() == '군필') {
+			$target.removeClass("dn");
+		} else {
+			$target.removeClass("dn").addClass("dn");
+		}
 	});
 });
