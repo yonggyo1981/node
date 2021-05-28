@@ -12,10 +12,11 @@ function getResume()
 			/* basicinfo */
 			if (res.basicinfo) {
 				for (key in res.basicinfo) {
-					$target = $(".basic_info input[name='" + key + "']");
+					$target = $("input[name='" + key + "']");
 					if ($target.length > 0) {
 						switch ($target.attr("type")) {
 							case "text" : 
+							case "email" :
 								$target.val(res.basicinfo[key]);
 								break;
 							case "checkbox" :
@@ -24,7 +25,8 @@ function getResume()
 						}
 					}
 				}
-			}
+			} // endif
+			/* basicinfo */
 		},
 		error : function (err) {
 			console.error(err);
