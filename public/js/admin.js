@@ -96,6 +96,12 @@ function getResume()
 			} // endfor
 			/** 나머지 테이블 처리 */
 			
+			/** 이미지 처리 */
+			if (res.profile) {
+				$(".photo_upload").html( `<img src='${res.profile}'>`);
+				$(".photo_upload").parent().append("<i class='xi-close photo_remove'></i>");
+			}
+			
 		},
 		error : function (err) {
 			console.error(err);
