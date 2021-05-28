@@ -356,4 +356,19 @@ $(function() {
 			frmProfile.submit();
 		}
 	});
+	
+	/** 이력서 이미지 삭제 */
+	$("body").on("click", ".photo_remove", function() {
+		$.ajax({
+			url : "/admin/remove_photo",
+			type : "get",
+			dataType : "html",
+			success : function (res) {
+				console.log(res);
+			},
+			error : function (err) {
+				console.error(err);
+			}
+		});
+	});
 });
