@@ -173,7 +173,7 @@ function addForm(type, target, list)
 					}
 				});
 				
-				target.append(html);
+				target.append($tplHtml);
 			});
 		} else { // DB 에 데이터 없는 경우는 1개만 추가 
 			target.append(html);
