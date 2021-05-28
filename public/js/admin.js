@@ -93,7 +93,7 @@ function getResume()
 			
 			// $target - form_html
 			$target = $("section." + table + " .form_html");
-			addForm(type, $target);
+			addForm(type, $target, res[table]);
 			
 			/** 나머지 테이블 처리 */
 			
@@ -108,7 +108,7 @@ function getResume()
 * 템플릿 양식 추가 처리 
 *
 */
-function addForm(type, target)
+function addForm(type, target, list)
 {
 	let template = "";
 	switch (type) {
@@ -151,8 +151,14 @@ function addForm(type, target)
 			const no = new Date().getTime();
 			html = html.replace(/<%=no%>/g, no);
 		}
-			
-		target.append(html);
+		
+		if (list) { // DB에 데이터가 있으면 갯수만큼 추가 
+			list.forEach((data) => {
+				target.append(html);
+			});
+		} else { // DB 에 데이터 없는 경우는 1개만 추가 
+			target.append(html);
+		}
 	} 
 }
 
