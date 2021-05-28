@@ -373,7 +373,7 @@ const resume = {
 	* 저장된 이력서 데이터 
 	*
 	*/
-	get : function() {
+	get : async function() {
 		const tables = [
 			'basicinfo',
 			'award', 
@@ -389,7 +389,8 @@ const resume = {
 		
 		const data = {};
 		try {
-			tables.forEach(async (table) => {
+			for (let i = 0; i < tables.length; i++) {
+				table = tables[i];
 				let sql = "SELECT * FROM " + table;
 				if (table != 'basicinfo') {
 					sql += " ORDER BY idx";
@@ -401,15 +402,16 @@ const resume = {
 				
 				if (table == 'basicinfo') { // 기본 인적사항 -> 레코드 1개
 					data[table] = rows[0];
+					data[table].benefit = data[table].benefit?data[table].benefit.split("||"):[];
+					
 				} else { // 나머지는 레코드 여러개 
 					data[table] = rows;
 				}
-			});
-			
+			}
 		} catch (err) {
 			return {};
 		}
-		
+		console.log(data);
 		return data;
 	},
 };
