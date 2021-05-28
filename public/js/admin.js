@@ -85,9 +85,15 @@ function getResume()
 					case "portfolio" : 
 						type = "포트폴리오";
 						break;
+					case "school" : 
+						type = "학력";
+						break;
 				}
-				
 			}
+			
+			// $target - form_html
+			$target = $("section." + table + " .form_html");
+			addForm(type, $target);
 			
 			/** 나머지 테이블 처리 */
 			
