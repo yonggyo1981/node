@@ -5,7 +5,7 @@
 function getResume()
 {
 	$.ajax({
-		url : "/admin/resume",
+		url : "/admin/profile",
 		type : "get",
 		dataType : "html",
 		success : function (res) {
