@@ -168,7 +168,7 @@ function addForm(type, target, list)
 						const name = $(this).attr("name").toLowerCase();
 						for(key in data) {
 							let keyName = key.toLowerCase();
-							if (keyName == 'description') keyname = 'desc';
+							if (keyName == 'description') keyName = 'desc';
 							
 							if (name.indexOf(keyName) != -1) {
 								// 일치하는 name이 있는 경우 
