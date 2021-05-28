@@ -24,7 +24,7 @@ function getResume()
 									// 취업우대, 병역 노출 
 									if (res.basicinfo[key].length > 0) {
 										$("section.benefit").removeClass("dn");
-										$("#selection_items10").prop("checked", true);
+										$(".floating_box .benefit").prop("checked", true);
 									}
 								
 									$.each($target, function() {
@@ -154,9 +154,24 @@ function addForm(type, target, list)
 		if (list) { // 데이터가 있으면 갯수만큼 추가 
 			if (list.length > 0) {
 				$("section." + template).removeClass("dn");
+				$(".floating_box ." + template).prop("checked", true);
 			}
 			
 			list.forEach((data) => {
+				// 데이터를 완성 처리 
+				$tplHtml = $(html);
+				// input[type='text'] 
+				$texts = $tplHtml.find("input[type='text']");
+				$.each($texts, function() {
+					const name = $(this).attr("name").toLowerCase();
+					for(key in data) {
+						if (name.indexOf(key.toLowerCase()) != -1) {
+							// 일치하는 name이 있는 경우 
+							console.log(name, key);
+						}
+					}
+				});
+				
 				target.append(html);
 			});
 		} else { // DB 에 데이터 없는 경우는 1개만 추가 
