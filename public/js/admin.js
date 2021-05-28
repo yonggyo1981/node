@@ -162,7 +162,7 @@ function addForm(type, target, list)
 			list.forEach((data) => {
 				// 데이터를 완성 처리 
 				let html2 = html;
-				html2 = html2.replace(/<%=no%>/g, new date().getTime());
+				html2 = html2.replace(/<%=no%>/g, new Date().getTime());
 				
 				$tplHtml = $(html2);
 				const selector = ["input[type='text']", "textarea", "select"];
@@ -190,7 +190,7 @@ function addForm(type, target, list)
 				target.append($tplHtml);
 			});
 		} else { // DB 에 데이터 없는 경우는 1개만 추가 
-			html = html.replace(/<%=no%>/g, new date().getTime());
+			html = html.replace(/<%=no%>/g, new Date().getTime());
 			target.append(html);
 		}
 	} 
