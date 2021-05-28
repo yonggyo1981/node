@@ -151,12 +151,7 @@ function addForm(type, target, list)
 		
 	if (template) {
 		let html = $("#template_" + template).html();
-					
-		if (target.length > 0) {
-			const no = new Date().getTime();
-			html = html.replace(/<%=no%>/g, no);
-		}
-		
+							
 		if (list) { // 데이터가 있으면 갯수만큼 추가 
 			if (list.length > 0) {
 				$("section." + template).removeClass("dn");
@@ -166,7 +161,10 @@ function addForm(type, target, list)
 			
 			list.forEach((data) => {
 				// 데이터를 완성 처리 
-				$tplHtml = $(html);
+				let html2 = html;
+				html2 = html2.replace(/<%=no%>/g, new date().getTime());
+				
+				$tplHtml = $(html2);
 				const selector = ["input[type='text']", "textarea", "select"];
 				selector.forEach((selector) => {
 					$texts = $tplHtml.find(selector);
@@ -192,6 +190,7 @@ function addForm(type, target, list)
 				target.append($tplHtml);
 			});
 		} else { // DB 에 데이터 없는 경우는 1개만 추가 
+			html = html.replace(/<%=no%>/g, new date().getTime());
 			target.append(html);
 		}
 	} 
