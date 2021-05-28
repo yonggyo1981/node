@@ -7,9 +7,24 @@ function getResume()
 	$.ajax({
 		url : "/admin/profile",
 		type : "get",
-		dataType : "html",
+		dataType : "json",
 		success : function (res) {
-			console.log(res);
+			/* basicinfo */
+			if (res.basicinfo) {
+				for (key in res.basicinfo) {
+					$target = $(".basic_info input[name='" + key + "']");
+					if ($target.length > 0) {
+						switch ($target.attr("type")) {
+							case "text" : 
+								$target.val(res.basicinfo[key]);
+								break;
+							case "checkbox" :
+								
+								break;
+						}
+					}
+				}
+			}
 		},
 		error : function (err) {
 			console.error(err);

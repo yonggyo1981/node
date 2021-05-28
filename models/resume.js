@@ -411,7 +411,7 @@ const resume = {
 		} catch (err) {
 			return {};
 		}
-		console.log(data);
+		
 		return data;
 	},
 };
