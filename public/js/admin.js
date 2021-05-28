@@ -180,6 +180,7 @@ function addForm(type, target, list)
 								
 								if (selector == 'select') {
 									$(this).change();
+									$(this).closest("section").find(".status, .major, .score, .scoreTotal").removeClass("dn");
 								}
 								break;
 							}
