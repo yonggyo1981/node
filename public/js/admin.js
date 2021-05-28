@@ -157,20 +157,26 @@ function addForm(type, target, list)
 				$(".floating_box ." + template).prop("checked", true);
 			}
 			
+			
 			list.forEach((data) => {
 				// 데이터를 완성 처리 
 				$tplHtml = $(html);
-				// input[type='text'] 
-				$texts = $tplHtml.find("input[type='text']");
-				$.each($texts, function() {
-					const name = $(this).attr("name").toLowerCase();
-					for(key in data) {
-						if (name.indexOf(key.toLowerCase()) != -1) {
-							// 일치하는 name이 있는 경우 
-							$(this).val(data[key]);
-							break;
+				const selector = ["input[type='text']", "textarea"];
+				selector.forEach((selector) => {
+					$texts = $tplHtml.find(selector);
+					$.each($texts, function() {
+						const name = $(this).attr("name").toLowerCase();
+						for(key in data) {
+							let keyName = key.toLowerCase();
+							if (keyName == 'description') keyname = 'desc';
+							
+							if (name.indexOf(keyName) != -1) {
+								// 일치하는 name이 있는 경우 
+								$(this).val(data[key]);
+								break;
+							}
 						}
-					}
+					});
 				});
 				
 				target.append($tplHtml);
