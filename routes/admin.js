@@ -13,14 +13,15 @@ router.get("/", (req, res, next) => {
 	return res.render("admin/main", params);
 });
 
-/** 이력서 저장 처리 */
-router.post("/profile", async (req, res, next) => {
-	const result = await resume.update(req.body);
-	if (!result)  {
-		return alert("이력서 저장에 실패하였습니다.", res);
-	}
-	
-	return reload(res, "parent");
-});
+router.route("/profile")
+	/** 이력서 저장 처리 */
+	.post(async (req, res, next) => {
+		const result = await resume.update(req.body);
+		if (!result)  {
+			return alert("이력서 저장에 실패하였습니다.", res);
+		}
+		
+		return reload(res, "parent");
+	});
 
 module.exports = router;
