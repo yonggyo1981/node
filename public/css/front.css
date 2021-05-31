@@ -3,7 +3,7 @@ body { background-color: #f2f4f7; padding: 50px 0; }
 .main_title { font-size: 30px; color: #000000; letter-spacing: -2px; line-height: 1.4; margin-bottom: 24px; font-weight: 500; }
 .sub_title { font-size: 22px; color: #000000; padding-bottom: 13px; border-bottom: 1px solid #000000; }
 
-.info_box {  background-color: #ffffff; }
+.info_box {  background-color: #ffffff; margin-bottom: 30px; }
 
 .info_box .rows > .box { float: left; }
 .info_box .rows:after { clear: left; content: ''; display: block; }
@@ -25,3 +25,5 @@ body { background-color: #f2f4f7; padding: 50px 0; }
 
 .info_box.basic_info .text1 { font-size: 14px; color: #888888; margin-bottom: 7px; }
 .info_box.basic_info .text2 { font-size: 14px; color: #000000; line-height: 1.6; margin-bottom: 5px; }
+.info_box.basic_info .text3 { font-size: 13px; color: #3399ff; margin-bottom: 5px; }
+.info_box.basic_info .text3:last-child { margin-bottom: 0; }

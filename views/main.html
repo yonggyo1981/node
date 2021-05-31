@@ -44,7 +44,7 @@
 				{% if school %} 
 				<div class='text2'>{{ school[0].name }}</div>
 				<div class='text3'>{{ school[0].type }}</div>
-				<div class='text4'>{{ school[0].status }}</div>
+				<div class='text3'>{{ school[0].status }}</div>
 				{% endif %}
 			</div>
 			<div class='box box2'>
@@ -52,7 +52,7 @@
 				{% if jobhistory %}
 				<div class='text2'>{{ jobhistory[0].company }}</div>
 				<div class='text3'>{{ '재직' if jobhistory[0].inOffice else '퇴사' }}</div>
-				<div class='text4'></div>
+				<div class='text3'></div>
 				{% endif %}
 			</div>
 			<div class='box box3'>
@@ -79,7 +79,38 @@
 		<!--// rows2 -->
 	</div>
 	
+	{% if school %}
 	<div class='sub_title'>학력</div>
+	<div class='info_box info_box2 school'>
+		{% for item in school %}
+		<div class='rows'>
+			<div class='box box1'>
+				<div class='tt1'>
+					{{ item.startDate }}
+					{% if item.endDate %} ~ {{ item.endDate }} {% endif %}
+				</div>
+				{% if item.status %}
+				<div class='tt2'>{{ item.status }}</div>
+				{% endif %}
+			</div>
+			<div class='box box2'>
+				<div class='r1'>
+					<span class='tt3'>{{ item.name }}</span>
+					{% if item.type != '고등학교' %}
+					<span class='tt4'>{{ item.major }}</span>
+					{% endif %}
+				</div>
+				{% if item.type != '고등학교' %}
+				<div class='r2'>
+					<span class='tt5 score'>{{ item.score }}</span>
+					<span class='tt5'>{{ item.gradeTotal }}</span>
+				</div>
+				{% endif %}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	{% endif %}
 </div>
 <!--// container -->
 {% endblock %}
