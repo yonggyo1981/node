@@ -4,3 +4,8 @@ body { background-color: #f2f4f7; padding: 50px 0; }
 .sub_title { font-size: 22px; color: #000000; padding-bottom: 13px; border-bottom: 1px solid #000000; }
 
 .info_box {  background-color: #ffffff; }
+
+.info_box .rows > .box { float: left; }
+.info_box .rows:after { clear: left; content: ''; display: block; }
+.info_box .rows > .profile { width: 140px; }
+.info_box .rows > .profile img { width: 100%; display: block; }

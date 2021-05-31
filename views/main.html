@@ -5,15 +5,15 @@
 {% block content %}
 <div class='container layout_width'>
 	<div class='main_title'>이력서</div>
-	<div class='info_box'>
+	<div class='info_box basic_info'>
 		<div class='rows'>
 			{% if profile %}
-			<div class='box box1'>
+			<div class='box box1 profile'>
 				<img src='{{ profile }}'>
 			</div>
 			{% endif %}
 			<div class='box box2'>
-				<div class='basic_info'>
+				<div class='main_info'>
 					<span class='t1'>{{ basicinfo.name }}</span>
 					<span class='t2'>{{ basicinfo.gender }} {{ basicinfo.birthYear }}년 {{ basicinfo.age }}세</span>
 				</div>
