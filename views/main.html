@@ -172,6 +172,38 @@
 	<!--// info_box -->
 	{% endif %}
 	
+	{% if education %}
+	<div class='sub_title'>교육이수</div>
+	<div class='info_box info_box2 education'>
+		{% for item in education %}
+		<div class='rows'>
+			<div class='box box1'>
+				<div class='tt1'>
+					{{ item.startDate }}
+					{% if item.endDate %} ~ {{ item.endDate }} {% endif %}
+				</div>
+				{% if item.period %}
+				<div class='tt2'>{{ item.period }}</div>
+				{% endif %}
+			</div>
+			<div class='box box2'>
+				<div class='r1'>
+					<span class='tt3'>{{ item.name }}</span>
+					{% if item.company %}<span class='tt4'>{{ item.company }}</span>{% endif %}
+				</div>
+				{% if item.description2 %}
+				<div class='tt5'>
+				{{ item.description2 }}
+				</div>
+				{% endif %}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<!--// info_box -->
+	{% endif %}
+	
+	
 	{% if license %}
 	<div class='sub_title'>자격증</div>
 	<div class='info_box info_box2 license'>
@@ -221,10 +253,19 @@
 		{% for item in overseas %}
 		<div class='rows'>
 			<div class='box box1'>
-			
+				<div class='tt1'>
+					{{ item.startDate }}
+					{% if item.endDate %} ~ {{ item.endDate }} {% endif %}
+				</div>
+				{% if item.period %}
+				<div class='tt2'>{{ item.period }}</div>
+				{% endif %}
 			</div>
 			<div class='box box2'>
-			
+				<div class='tt3'>{{ item.name }}</div>
+				{% if item.description2 %}
+				<div class='tt5'>{{ item.description2 }}</div>
+				{% endif %}
 			</div>
 		</div>
 		<!--// rows -->
