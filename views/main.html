@@ -140,9 +140,46 @@
 	<!--// info_box -->
 	{% endif %}
 	
-	{% if item.intern %}
+	{% if intern %}
 	<div class='sub_title'>인턴·대외활동</div>
+	<div class='info_box info_box2 intern'>
+		{% for item in intern %}
+		<div class='rows'>
+			<div class='box box1'>
+				<div class='tt1'>
+					{{ item.startDate }}
+					{% if item.endDate %} ~ {{ item.endDate }} {% endif %}
+				</div>
+				{% if item.period %}
+				<div class='tt2'>{{ item.period }}</div>
+				{% endif %}
+			</div>
+			<div class='box box2'>
+				<div class='r1'>
+					<span class='tt3'>{{ item.company }}</span>
+					<span class='tt4'>{{ item.type }}</span>
+				</div>
+				{% if item.description2 %}
+				<div class='tt5'>
+					{{ item.description2 }}
+				</div>
+				{% endif %}
+			</div>
+		</div>
+		<!--// rows -->
+		{% endfor %}
+	</div>
+	<!--// info_box -->
 	{% endif %}
+	
+	{% if license %}
+	<div class='sub_title'>자격증</div>
+	<div class='info_box info_box license'>
+	
+	</div>
+	{% endif %}
+	
+	
 </div>
 <!--// container -->
 {% endblock %}
