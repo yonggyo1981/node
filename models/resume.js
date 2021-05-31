@@ -434,7 +434,7 @@ const resume = {
 					data[table] = rows[0];
 					data[table].benefit = data[table].benefit?data[table].benefit.split("||"):[];
 				
-					let age = 0;
+					let age = 0, birthYear = 0;
 					if (data[table].birthDate) {
 						const birthDate = data[table].birthDate.split(".");
 						
