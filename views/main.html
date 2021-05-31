@@ -6,10 +6,38 @@
 <div class='container layout_width'>
 	<div class='main_title'>이력서</div>
 	<div class='info_box'>
-		<div class='main_rows'>
-			<span class='t1'>{{ basicinfo.name }}</span>
-			<span class='t2'>{{ basicinfo.gender }} {{ age }}세</span>
+		<div class='rows'>
+			{% if profile %}
+			<div class='box box1'>
+				<img src='{{ profile }}'>
+			</div>
+			{% endif %}
+			<div class='box box2'>
+				<div class='basic_info'>
+					<span class='t1'>{{ basicinfo.name }}</span>
+					<span class='t2'>{{ basicinfo.gender }} {{ basicinfo.birthYear }}년 {{ basicinfo.age }}세</span>
+				</div>
+				<dl>
+					<dt>휴대폰</dt>
+					<dd>{{ basicinfo.cellPhone }}</dd>
+				</dl>
+				<dl>
+					<dt>전화번호</dt>
+					<dd>{{ basicinfo.landline }}</dd>
+				</dl>	
+				<dl>
+					<dt>주소</dt>
+					<dd>{{ basicinfo.address }}</dd>
+				</dl>
+			</div>
+			<div class='box box3'>
+				<dl>
+					<dt>Email</dt>
+					<dd>{{ basicinfo.email }}</dd>
+				</dl>
+			</div>
 		</div>
+		<!--// rows -->
 	</div>
 	
 	<div class='sub_title'>학력</div>

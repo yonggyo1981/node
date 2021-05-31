@@ -440,8 +440,10 @@ const resume = {
 						
 						const year = Number(new Date().getFullYear());
 						age = year - Number(birthDate[0]) + 1;
+						birthYear = birthDate[0];
 					}
 					
+					data[table].birthYear = birthYear;
 					data[table].age = age;
 				
 				} else { // 나머지는 레코드 여러개 

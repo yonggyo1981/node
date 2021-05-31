@@ -1,4 +1,6 @@
 body { background-color: #f2f4f7; padding: 50px 0; }
-.layout_width { width: 940px; }
+.layout_width { max-width: 940px; width: 100%; }
 .main_title { font-size: 30px; color: #000000; letter-spacing: -2px; line-height: 1.4; margin-bottom: 24px; font-weight: 500; }
 .sub_title { font-size: 22px; color: #000000; padding-bottom: 13px; border-bottom: 1px solid #000000; }
+
+.info_box {  background-color: #ffffff; }
