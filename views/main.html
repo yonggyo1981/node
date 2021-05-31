@@ -272,6 +272,24 @@
 		{% endfor %}
 	</div>
 	{% endif %}
+	
+	{% if language %}
+	<div class='sub_title'>어학</div>
+	<div class='info_box info_box2 language'>
+		{% for item in language %}
+		<div class='rows'>
+			<div class='box box1'>
+				<div class='tt1'>{{ item.type }}</div>
+			</div>
+			<div class='box box2'>
+				<span class='tt3'>{{ item.name }}</span>
+				{% if item.ability %}<span class='tt4'>{{ item.ability }}</span>{% endif %}
+			</div>
+		</div>
+		<!--// rows -->
+		{% endfor %}
+	</div>
+	{% endif %}
 </div>
 <!--// container -->
 {% endblock %}
