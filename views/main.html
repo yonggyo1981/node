@@ -174,12 +174,63 @@
 	
 	{% if license %}
 	<div class='sub_title'>자격증</div>
-	<div class='info_box info_box license'>
-	
+	<div class='info_box info_box2 license'>
+		{% for item in license %}
+		<div class='rows'>
+			<div class='box box1'>
+				<div class='tt1'>{{ item.date }}</div>
+			</div>
+			<div class='box box2'>
+				<span class='tt3'>{{ item.name }}</span>
+				{% if item.issue %}<span class='tt4'>{{ item.issue }}</span>{% endif %}
+			</div>
+		</div>	
+		<!--// rows -->
+		{% endfor %}
 	</div>
 	{% endif %}
 	
+	{% if award %}
+	<div class='sub_title'>수상</div>
+	<div class='info_box info_box2 award'>
+		{% for item in award %}
+		<div class='rows'>
+			<div class='box box1'>
+				<div class='tt1'>{{ item.year }}년</div>
+			</div>
+			<div class='box box2'>
+				<div class='r1'>
+					<span class='tt3'>{{ item.name }}</span>
+					{% if item.company %}<span class='tt4'>{{ item.company }}</span>{% endif %}
+				</div>
+				{% if item.description2 %}
+				<div class='tt5'>
+					{{ item.description2 }}
+				</div>
+				{% endif %}
+			</div>
+		</div>
+		<!--// rows -->
+		{% endfor %}
+	</div>
+	{% endif %}
 	
+	{% if overseas %}
+	<div class='sub_title'>해외경험</div>
+	<div class='info_box info_box2 overseas'>
+		{% for item in overseas %}
+		<div class='rows'>
+			<div class='box box1'>
+			
+			</div>
+			<div class='box box2'>
+			
+			</div>
+		</div>
+		<!--// rows -->
+		{% endfor %}
+	</div>
+	{% endif %}
 </div>
 <!--// container -->
 {% endblock %}
