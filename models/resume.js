@@ -478,6 +478,7 @@ const resume = {
 						// 시작일, 종료일이 있는 경우 -> 총 년, 월 기간으로 계산
 						if (v.startDate && v.endDate) {
 							const period = resume.getPeriod(v.startDate, v.endDate);
+							_rows[i].period = period.str;
 						}
 					});
 					
@@ -538,7 +539,11 @@ const resume = {
 		const year = Math.floor(gap / 12);
 		const month = gap % 12;
 		
-		return { year, month };
+		let str = "";
+		if (year) str += year + "년 ";
+		if (month) str += month + "개월";
+		
+		return { year, month, str };
 	}
 };
 

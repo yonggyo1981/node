@@ -52,7 +52,7 @@
 				{% if jobhistory %}
 				<div class='text2'>{{ jobhistory[0].company }}</div>
 				<div class='text3'>{{ '재직' if jobhistory[0].inOffice else '퇴사' }}</div>
-				<div class='text3'></div>
+				<div class='text3'>{{ jobhistory[0].period }}</div>
 				{% endif %}
 			</div>
 			<div class='box box3'>
