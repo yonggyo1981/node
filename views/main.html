@@ -339,7 +339,7 @@
 				{% endif %}
 			</td>
 			<th>고용지원금대상 여부</th>
-			<td>
+			<td class='last'>
 				{% if basicinfo.benefit3 %}
 					대상
 				{% else %}
@@ -357,7 +357,7 @@
 				{% endif %}
 			</td>
 			<th>장애여부</th>
-			<td>
+			<td class='last'> 
 				{% if basicinfo.handicapLevel %}
 				{{ basicinfo.handicapLevel }}
 				{% else %}
@@ -373,13 +373,13 @@
 	<table>
 		<tr>
 			<th>고용형태</th>
-			<td>
+			<td class='last'>
 				{{ basicinfo.workType }}
 			</td>
 		</tr>
 		<tr>
 			<th>희망연봉</th>
-			<td>
+			<td class='last'>
 				{% if basicinfo.negotiableSalary %} 
 					면접 후 결정 
 				{% else %} 
@@ -389,7 +389,7 @@
 		</tr>
 		<tr>
 			<th>희망근무지</th>
-			<td>
+			<td class='last'>
 				{{ basicinfo.workLocation }}
 			</td>
 		</tr>
