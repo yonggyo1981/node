@@ -370,6 +370,30 @@
 	{% endif %}
 	
 	<div class='sub_title'>희망근무조건</div>
+	<table>
+		<tr>
+			<th>고용형태</th>
+			<td>
+				{{ basicinfo.workType }}
+			</td>
+		</tr>
+		<tr>
+			<th>희망연봉</th>
+			<td>
+				{% if basicinfo.negotiableSalary %} 
+					면접 후 결정 
+				{% else %} 
+					{{ basicinfo.salary }} 
+				{% endif %}
+			</td>
+		</tr>
+		<tr>
+			<th>희망근무지</th>
+			<td>
+				{{ basicinfo.workLocation }}
+			</td>
+		</tr>
+	</table>
 </div>
 <!--// container -->
 {% endblock %}
