@@ -4,7 +4,7 @@ const contants = require('fs').constants;
 const path = require('path');
 
 String.prototype.nl2br = function() {
-	const newText = this.replace(/\\r\\n/g, "<br>");
+	const newText = this.replace(/\r\n/g, "<br>");
 	
 	return newText;
 };
